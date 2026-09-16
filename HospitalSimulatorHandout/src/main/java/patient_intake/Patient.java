@@ -29,15 +29,15 @@ public class Patient extends Person {
     }
 
     public String getFirstName() {
-        return super.getFirstName(); // TODO REQUIRED: Return the first name.
+        return getFirstName; // TODO REQUIRED: Return the first name.
     }
 
     public String getLastName() {
-        return super.getLastName(); // TODO REQUIRED: Return the last name.
+        return getLastName; // TODO REQUIRED: Return the last name.
     }
 
     public int getAge() {
-        return super.getAge(); // TODO REQUIRED: Return the age.
+        return getAge; // TODO REQUIRED: Return the age.
     }
 
     public String getChiefComplaint() {
@@ -112,7 +112,8 @@ public class Patient extends Person {
 
     @Override
     public String toString() {
-        return "Patient ID:" + patientId + " | Name: " + getFirstName() + " " + getLastName() + 
-               " | Age: " + getAge() + " | Stage: " + currentStage + " | Room: " + assignedRoom;; // TODO REQUIRED: Return a useful representation of a patient.
+        return String.format("Patient[ID=%s, Name=%s %s, Age=%d, Complaint='%s', Triage=%d, Stage=%s, Room=%s, ArrivalHour=%d, Insurance=%s]",
+                patientID, firstName, lastName, age, chiefComplaint, triageLevel, currentStage, assignedRoom, arrivalHour, insuranceID);
+        // TODO REQUIRED: Return a useful representation of a patient.
     }
 }
