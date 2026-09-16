@@ -40,7 +40,9 @@ public class PatientRegistry {
     }
     
     public Patient[] getPatientRegistry() {
-        return petientRegistry; // TODO REQUIRED: Return the patients currently stored.
+        Patient[] copy = new Patient[size];
+        System.arraycopy(patientRegistry, 0, copy, 0, size);
+        return copy; // TODO REQUIRED: Return the patients currently stored.
     }
 
     public Patient getPatientByID(String patientID) {
