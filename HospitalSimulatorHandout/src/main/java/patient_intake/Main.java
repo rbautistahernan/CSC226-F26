@@ -19,7 +19,7 @@ public class Main {
             String[] parts = line.split(",");
 
             // TODO REQUIRED: Parse the fields from parts.
-            String fullName=parts[0].trim();
+            String fullName=parts[1].trim();
             // TODO REQUIRED: Split the full name into firstName and lastName.
             String[] nameParts= fullName.split(" ",2);
             String firstName=nameParts[0];
@@ -33,7 +33,8 @@ public class Main {
          }
 
          patient.display();// TODO REQUIRED: Display the completed registry.
-      } catch (FileNotFoundException exception) {
+         System.out.print(patient.toString());
+        catch (FileNotFoundException exception) {
         System.err.println("Error: Could not find the input file at " + filePath); // TODO REQUIRED: Report a missing input file.
       }
    }
