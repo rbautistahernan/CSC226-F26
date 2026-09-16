@@ -16,10 +16,11 @@ public class Main {
 
          while (fileReader.hasNextLine()) {
             String line = fileReader.nextLine();
+            if (line.isEmpty()) continue;
             String[] parts = line.split(",");
 
             // TODO REQUIRED: Parse the fields from parts.
-            String fullName=parts[1].trim();
+            String fullName=parts[0].trim();
             // TODO REQUIRED: Split the full name into firstName and lastName.
             String[] nameParts= fullName.split(" ",2);
             String firstName=nameParts[0];
