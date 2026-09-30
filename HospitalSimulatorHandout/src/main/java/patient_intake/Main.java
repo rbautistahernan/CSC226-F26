@@ -16,26 +16,33 @@ public class Main {
 
          while (fileReader.hasNextLine()) {
             String line = fileReader.nextLine();
-            if (line.isEmpty()) continue;
-            String[] parts = line.split(",");
+            if (line.trim()){ continue;}
+            
+            String[] parts = line.split(",", -1);
+            String[] nameParts=parts[1].trim().split("",2);
 
-            // TODO REQUIRED: Parse the fields from parts.
-            String fullName=parts[0].trim();
-            // TODO REQUIRED: Split the full name into firstName and lastName.
-            String[] nameParts= fullName.split(" ",2);
             String firstName=nameParts[0];
             String lastName=nameParts.length >1?nameParts[1]:"";
 
             int age= Integer.parseInt(parts[1].trim());
             String id=parts[2].trim();
             // TODO REQUIRED: Create a Patient and add it to patients.
-            Patient patient=new Patient(firstName, lastName, age, id);
-            patient.addPatient(patient);
+            Patient patient=new Patient(
+               parts[0].trim(),
+               firstName,
+               lastName,
+               Integer.parseInt(parts[2].trim()),
+               parts[3].trim(),
+               Integer.parseInt(parts[4].trim()),
+               parts[5].trim(),
+               parts[6].trim(),
+               Integer.parseInt(parts[7].trim()),
+               parts[8].trim());
+            patients.addPatient(patient);
          }
 
-         patient.display();// TODO REQUIRED: Display the completed registry.
-         System.out.print(patient.toString());
-        catch (FileNotFoundException exception) {
+         System.out.println(patients);
+      } catch (FileNotFoundException exception) {
         System.err.println("Error: Could not find the input file at " + filePath); // TODO REQUIRED: Report a missing input file.
       }
    }
