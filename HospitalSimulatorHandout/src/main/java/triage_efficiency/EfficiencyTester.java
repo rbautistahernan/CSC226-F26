@@ -4,7 +4,6 @@ import java.util.*;
 import patient_intake.Patient;
 
 public class EfficiencyTester {
-
     /**
      * REQUIRED (80%): Implement linear search.
      *
@@ -14,11 +13,14 @@ public class EfficiencyTester {
      * This method must run in O(n) time.
      */
     public Patient linearSearch(Patient[] patients, String pid) {
-        // TODO REQUIRED: Implement linear search.
-        // Search the entire array in order and return the matching Patient.
-        return null; // Remove this line and implement the method.
+        for (Patient patient : patients){
+    if (patients.getPatientID().equals(pid)){
+        return patient;
     }
-
+    }
+        // Search the entire array in order and return the matching Patient.
+        return null; 
+    }
     /**
      * REQUIRED (80%): Implement binary search.
      *
@@ -28,28 +30,57 @@ public class EfficiencyTester {
      * This method must run in O(log n) time.
      */
     public Patient binarySearch(Patient[] patients, String pid) {
-        // TODO REQUIRED: Implement iterative binary search.
+        int left=0;
+        int right = patients.length -1;
+
+        while (left<=right){
+            int middle=left+(right-left)/2;
+            int comparison=patients[middle].getPatientID().compareTo(pid);
+
+            if(comparison==0){
+                return patients[middle];
+                    }
+            else if (comparison <0){
+                left = middle +1;}
+            else{
+                right = middle-1;}
+        }
         // The array must be sorted by patientID before calling this method.
-        return null; // Remove this line and implement the method.
+        return null; 
     }
 
-    /**
-     * OPTIONAL (+5%): Implement a different O(log n) search algorithm.
-     *
-     * Pick one of the following approaches and implement it:
-     * - Exponential search
-     * - Jump search
-     * - Ternary search
-     *
-     * Add a short comment above the method explaining:
-     * - which algorithm you chose
-     * - where you learned about it
-     * - why it works
-     */
+    /**Optional algorithm: Exponential search
+    *Learnign Source: ChatGPT explanation and implementation guidance
+    *
+    *The array must be sorted by paritent ID. This method checks position
+    *1, 2, 4, 8, and continues on to find a possible search range.
+    *Then it uses binary search within that range.
+    *Doubling the position and halving the range give O(log n)
+    *worst case time.
+    */
     public Patient logNSearch(Patient[] patients, String pid) {
-        // TODO OPTIONAL: Research and implement a second O(log n) algorithm.
-        // Cite your source and explain the approach in a comment before the logic.
-        return null; // Remove this line and implement the method.
+        if (patients.length==0){
+            return null;}
+        if (patients[0].getPetientID().equals(pid)){
+            return patients[0];}
+        int bound =1;
+        while (bound < patients.length
+               && patients[bound]getPatientID().compareTo(pid) < 0) {
+            bound *=2;}
+        int left =bound/2;
+        int right= Math.min(bound, patients.length -1);
+        while (left<=right){
+            int middle =left +(right-left)/2;
+            int comparison=patients[middle].getPatientID().compareTo(pid);
+
+            if(comparison ==0){
+                return patients[middle];}
+            else if (comparison <0){
+                left = middle+1;}
+            else{
+                right = middle -1;}
+        }
+        return null; 
     }
 
     public void timeDemo() {
