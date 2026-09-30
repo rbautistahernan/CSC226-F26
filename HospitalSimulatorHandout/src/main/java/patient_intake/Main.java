@@ -16,16 +16,16 @@ public class Main {
 
          while (fileReader.hasNextLine()) {
             String line = fileReader.nextLine();
-            if (line.trim()){ continue;}
+            if (line.trim().isEmpty()){ 
+               continue;
+            }
             
             String[] parts = line.split(",", -1);
-            String[] nameParts=parts[1].trim().split("",2);
+            String[] nameParts=parts[1].trim().split(" ",2);
 
             String firstName=nameParts[0];
             String lastName=nameParts.length >1?nameParts[1]:"";
-
-            int age= Integer.parseInt(parts[1].trim());
-            String id=parts[2].trim();
+            
             // TODO REQUIRED: Create a Patient and add it to patients.
             Patient patient=new Patient(
                parts[0].trim(),
