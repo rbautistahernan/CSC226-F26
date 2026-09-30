@@ -57,7 +57,7 @@ public class Patient extends Person {
     }
 
     public int getArrivalHour() {
-        return arricalHour; // TODO REQUIRED: Return the arrival hour.
+        return arrivalHour; // TODO REQUIRED: Return the arrival hour.
     }
 
     public String getInsuranceID() {
@@ -99,7 +99,7 @@ public class Patient extends Person {
     }
 
     public void setAssignedRoom(String assignedRoom) {
-        this.addignedRoom=assignedRoom;// TODO REQUIRED: Update the assigned room.
+        this.assignedRoom=assignedRoom;// TODO REQUIRED: Update the assigned room.
     }
 
     public void setArrivalHour(int arrivalHour) {
