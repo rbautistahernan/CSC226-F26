@@ -29,15 +29,15 @@ public class Patient extends Person {
     }
 
     public String getFirstName() {
-        return getFirstName; // TODO REQUIRED: Return the first name.
+        return firstName; // TODO REQUIRED: Return the first name.
     }
 
     public String getLastName() {
-        return getLastName; // TODO REQUIRED: Return the last name.
+        return lastName; // TODO REQUIRED: Return the last name.
     }
 
     public int getAge() {
-        return getAge; // TODO REQUIRED: Return the age.
+        return age; // TODO REQUIRED: Return the age.
     }
 
     public String getChiefComplaint() {
@@ -70,18 +70,18 @@ public class Patient extends Person {
     }
 
     public void setFirstName(String firstName) {
-        super.setFirstName(firstName); // TODO REQUIRED: Update the first name.
+        this.firstName= firstName; // TODO REQUIRED: Update the first name.
     }
 
     public void setLastName(String lastName) {
-        super.setLastName(lastName); // TODO REQUIRED: Update the last name.
+        this.lastName=lastName; // TODO REQUIRED: Update the last name.
     }
 
     public void setAge(int age) {
         if (age<0||age>120){
-            throw new NotAcceptableAge("Age must be between 0 and 120.");
+            throw new IllegalArgumentException("Age must be between 0 and 120.");
         }
-        super.setAge(age);
+        this.age=age;
         // TODO REQUIRED: Update the age.
         // OPTIONAL (+5%): Reject ages outside the range 0 through 120.
     }
