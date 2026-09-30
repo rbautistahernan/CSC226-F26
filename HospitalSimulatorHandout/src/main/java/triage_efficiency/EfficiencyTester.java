@@ -14,7 +14,7 @@ public class EfficiencyTester {
      */
     public Patient linearSearch(Patient[] patients, String pid) {
         for (Patient patient : patients){
-    if (patients.getPatientID().equals(pid)){
+    if (patient.getPatientID().equals(pid)){
         return patient;
     }
     }
@@ -61,7 +61,7 @@ public class EfficiencyTester {
     public Patient logNSearch(Patient[] patients, String pid) {
         if (patients.length==0){
             return null;}
-        if (patients[0].getPetientID().equals(pid)){
+        if (patients[0].getPatientID().equals(pid)){
             return patients[0];}
         int bound =1;
         while (bound < patients.length
