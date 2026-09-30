@@ -13,6 +13,7 @@ public class Patient extends Person {
                    String chiefComplaint, int triageLevel, String currentStage, 
                    String assignedRoom, int arrivalHour, String insuranceID) {
         super(firstName, lastName, age);
+        setAge(age);
         // TODO REQUIRED: Initialize the patient-specific fields.
         this.patientID=patientID;
         this.chiefComplaint=chiefComplaint;
