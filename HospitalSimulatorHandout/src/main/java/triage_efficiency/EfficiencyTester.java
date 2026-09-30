@@ -65,8 +65,8 @@ public class EfficiencyTester {
             return patients[0];}
         int bound =1;
         while (bound < patients.length
-               && patients[bound]getPatientID().compareTo(pid) < 0) {
-            bound *=2;}
+        && patients[bound].getPatientID().compareTo(pid) < 0) {
+            bound *= 2;}
         int left =bound/2;
         int right= Math.min(bound, patients.length -1);
         while (left<=right){
