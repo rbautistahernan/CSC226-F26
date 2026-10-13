@@ -10,6 +10,10 @@ public class EmergencyWaitingRoom {
 
     public EmergencyWaitingRoom() {
         // TODO: Create one empty FIFO queue for each triage level.
+        level1 = new LinkedQueue<>();
+        level2 = new LinkedQueue<>();
+        level3 = new LinkedQueue<>();
+        level4 = new LinkedQueue<>();
     }
 
     /**
@@ -19,7 +23,24 @@ public class EmergencyWaitingRoom {
      */
     public boolean addPatient(Patient patient) {
         // TODO: Validate the patient and place them in the matching lane.
+        if (patien== null){
         return false;
+        }
+
+        int level = patient.getTriageLevel();
+
+        if(level==1){
+            level11.enqueue(patient);
+        }else if (level ==2){
+            level2.enqueue(patient);
+        }else if(level==3){
+            level3.queue(patient);
+        }else if (level==4){
+            level4.queue(patient);
+        }else{
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -27,16 +48,31 @@ public class EmergencyWaitingRoom {
      */
     public Patient nextPatient() {
         // TODO: Dequeue from the first non-empty lane, or return null if all are empty.
+        if (!level1.isEmpty()){
+        return level1.dequeue;
+        }
+        if (!level2.isEmpty()){
+            return level2.dequeue();
+        }
+        if (!level3.isEmpty()){
+            return level3.dequeue();
+        }
+        if (!level4.isEmpty()){
+            return level3.dequeue();
+        }
         return null;
     }
 
     public boolean isEmpty() {
         // TODO: Return true only when all four lanes are empty.
-        return false;
+        return level1.isEmpty()
+            && level2.isEmpty()
+            && level3.isEmpty()
+            && level4.isEmpty();
     }
 
     public int size() {
         // TODO: Return the total number of patients across all four lanes.
-        return 0;
+        return level1.size() + level2.size() + level3.size() + level4.size();
     }
 }

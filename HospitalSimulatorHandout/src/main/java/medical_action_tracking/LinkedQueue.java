@@ -16,41 +16,79 @@ public class LinkedQueue<T> {
 
     public LinkedQueue() {
         // TODO: Initialize an empty queue.
+        front=null;
+        rear=null;
+        size=0;
     }
 
     public void enqueue(T item) {
         // TODO: Add a node at the rear. Update both references when the queue is empty.
+        if (item==null){
+            throw new IllegalArgumentException("Item cannot be null.");
+        }
+        Node newNode = new Node(item);
+        
+        if (front==null){
+            front= newNode;
+            rear = newNode;
+        }
+        size++;
     }
 
     public T dequeue() {
         // TODO: Remove and return the front item, or return null if empty.
         // TODO: When removing the last item, make both front and rear null.
+        if(front==null){
         return null;
+        }
+        T removedItem = front.data;
+        front = front.next;
+        size--;
+        if (front==null){
+            rear=null;
+        }
+        return removedItem;
     }
 
     public T peekFront() {
         // TODO: Return the front item without removing it, or null if empty.
+        if (front ==null){
         return null;
+        }
+        return front.data;
     }
 
     public boolean isEmpty() {
         // TODO: Determine whether the queue contains any items.
-        return false;
+        return front==null;
     }
 
     public int size() {
         // TODO: Return the number of queued items.
-        return 0;
+        return size;
     }
 
     @Override
     public String toString() {
         // TODO: Recursively build a string from front to rear without changing the queue.
-        return "[]";
+        StringBuilder result = new StringBuilder("[");
+        appendNodesRecursively(front,result);
+        result.append("]");
+        return result.toString();
     }
 
     private void appendNodesRecursively(Node current, StringBuilder result) {
         // TODO: Add the current node's data, then recursively visit current.next.
         // TODO: Stop at the null-node base case.
+        if (current.next != null){
+            return;
+        }
+
+        result append(current.data);
+
+        if (current.next != null){
+            result.append(", ");
+        }
+        appendNodesRecursively(current.next, result);
     }
 }
