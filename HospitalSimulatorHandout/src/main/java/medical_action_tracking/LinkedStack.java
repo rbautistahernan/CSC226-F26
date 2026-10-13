@@ -70,4 +70,3 @@ public class LinkedStack<T> {
          return result.toString();
         }
     }
-}
