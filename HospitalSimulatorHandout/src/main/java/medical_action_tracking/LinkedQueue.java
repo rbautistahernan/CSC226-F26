@@ -32,8 +32,8 @@ public class LinkedQueue<T> {
             front= newNode;
             rear = newNode;
         }else{
-            rear.next=newMode;
-            rear = newMode;
+            rear.next=newNode;
+            rear = newNode;
         }
         size++;
     }
@@ -83,7 +83,7 @@ public class LinkedQueue<T> {
     private void appendNodesRecursively(Node current, StringBuilder result) {
         // TODO: Add the current node's data, then recursively visit current.next.
         // TODO: Stop at the null-node base case.
-        if (current.next != null){
+        if (current == null){
             return;
         }
 
