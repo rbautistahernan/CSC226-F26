@@ -29,6 +29,6 @@ public class TreatmentRecord {
     @Override
     public String toString() {
         // TODO: Return "timestamp | patientID | treatmentName".
-        return timestamp + "|" + patientID + "|" + treatmentName;
+        return timestamp + " | " + patientID + " | " + treatmentName;
     }
 }

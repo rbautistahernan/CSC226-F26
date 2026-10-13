@@ -31,6 +31,9 @@ public class LinkedQueue<T> {
         if (front==null){
             front= newNode;
             rear = newNode;
+        }else{
+            rear.next=newMode;
+            rear = newMode;
         }
         size++;
     }
@@ -84,7 +87,7 @@ public class LinkedQueue<T> {
             return;
         }
 
-        result append(current.data);
+        result.append(current.data);
 
         if (current.next != null){
             result.append(", ");

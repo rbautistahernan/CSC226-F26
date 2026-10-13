@@ -23,20 +23,20 @@ public class EmergencyWaitingRoom {
      */
     public boolean addPatient(Patient patient) {
         // TODO: Validate the patient and place them in the matching lane.
-        if (patien== null){
+        if (patient== null){
         return false;
         }
 
         int level = patient.getTriageLevel();
 
         if(level==1){
-            level11.enqueue(patient);
+            level1.enqueue(patient);
         }else if (level ==2){
             level2.enqueue(patient);
         }else if(level==3){
-            level3.queue(patient);
+            level3.enqueue(patient);
         }else if (level==4){
-            level4.queue(patient);
+            level4.enqueue(patient);
         }else{
             return false;
         }
@@ -49,7 +49,7 @@ public class EmergencyWaitingRoom {
     public Patient nextPatient() {
         // TODO: Dequeue from the first non-empty lane, or return null if all are empty.
         if (!level1.isEmpty()){
-        return level1.dequeue;
+        return level1.dequeue();
         }
         if (!level2.isEmpty()){
             return level2.dequeue();
@@ -58,7 +58,7 @@ public class EmergencyWaitingRoom {
             return level3.dequeue();
         }
         if (!level4.isEmpty()){
-            return level3.dequeue();
+            return level4.dequeue();
         }
         return null;
     }

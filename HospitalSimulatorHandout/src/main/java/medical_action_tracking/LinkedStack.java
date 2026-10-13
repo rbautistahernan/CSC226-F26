@@ -64,6 +64,7 @@ public class LinkedStack<T> {
             if (current.next != null){
                 result.append(", ");
             }
+            current = current.next;
          }
          result.append("]");
          return result.toString();
