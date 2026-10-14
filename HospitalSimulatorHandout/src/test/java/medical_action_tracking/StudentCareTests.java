@@ -97,7 +97,7 @@ public class StudentCareTests{
         history.addTreatment("P001", "Assessment", "2026-10-13 10:00");
         history.addTreatment("P002", "Bandage", "2026-10-13 09:00");
 
-        String expected = "[2026-10-13 09:00 | P002 | Bandage, 2026-10-13 10:00 | P001 | Assesment]";
+        String expected = "[2026-10-13 09:00 | P002 | Bandage, 2026-10-13 10:00 | P001 | Assessment]";
 
         assertEquals(expected, history.displayHistory());
         assertEquals(expected, history.displayHistory());
