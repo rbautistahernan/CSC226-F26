@@ -8,13 +8,19 @@ public class EmergencyWaitingRoom {
     private LinkedQueue<Patient> level3;
     private LinkedQueue<Patient> level4;
 
+    private int laneCapacityl
+
     public EmergencyWaitingRoom() {
         // TODO: Create one empty FIFO queue for each triage level.
-        level1 = new LinkedQueue<>();
-        level2 = new LinkedQueue<>();
-        level3 = new LinkedQueue<>();
-        level4 = new LinkedQueue<>();
+        this(Integer.MAX_VALUE);
     }
+    this.laneCapacity = laneCapacity;
+
+    level1 = new LinkedQueue<>();
+    level2 = new LinkedQueue<>();
+    level3 = new LinkedQueue<>();
+    level4 = new LinkedQueue<>();
+}
 
     /**
      * Add a patient to the FIFO lane matching their triage level.
@@ -28,18 +34,23 @@ public class EmergencyWaitingRoom {
         }
 
         int level = patient.getTriageLevel();
+        LinkedQueue<Patient> selectedLane;
 
         if(level==1){
-            level1.enqueue(patient);
+            selectedLane = level1;
         }else if (level ==2){
-            level2.enqueue(patient);
+            selectedLane = level2;
         }else if(level==3){
-            level3.enqueue(patient);
+            selectedLane = level3;
         }else if (level==4){
-            level4.enqueue(patient);
+            selectedLane = level4;
         }else{
             return false;
         }
+        if (selectedLane.size() >= laneCapacity){
+        return false;
+        }
+        selectedLane.enqueue(patient);
         return true;
     }
 

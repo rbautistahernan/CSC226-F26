@@ -94,4 +94,15 @@ public class LinkedQueue<T> {
         }
         appendNodesRecursively(current.next, result);
     }
+
+    public int recursiveCount(){
+        return countNodesRecursively(front);
+    }
+
+    private int countNodesRecursively(Node current){
+        if(current==null){
+            return 0;
+        }
+        reutrn 1 + countNodesRecursively(current.next);
+    }
 }
