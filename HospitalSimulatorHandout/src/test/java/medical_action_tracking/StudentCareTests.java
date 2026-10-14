@@ -45,7 +45,7 @@ public class StudentCareTests{
         stack.push("Maniac");
         stack.push("Thunderous");
 
-        assertThrows(IllegalArgumentException.class() -> stack.push(null));
+        assertThrows(IllegalArgumentException.class, () -> stack.push(null));
 
         assertEquals(2, stack.size());
         assertEquals("Thunderous", stack.pop());
@@ -93,16 +93,22 @@ public class StudentCareTests{
     @Test 
     void historyUsesInsertionOrderAndCanBeReusedAfterUndo(){
         TreatmentHistory history = new TreatmentHistory();
+
         history.addTreatment("P001", "Assesment", "2026-10-13 10:00");
         history.addTreatment("P002", "Bangage", "2026-10-13 09:00");
 
-        String expected= "[2026-10-13 09:00 | P002 | Bandage," + "2026-10-13 10:00 | P001 | Assesment]";
+        String expected = "[2026-10-13 09:00 | P002 | Bandage," + "2026-10-13 10:00 | P001 | Assesment]";
 
-        assertEquals(expectedm history.displayHistory());
         assertEquals(expected, history.displayHistory());
+        assertEquals(expected, history.displayHistory());
+
         assertEquals("P002", history.undoLastAction().getPatientID());
         assertEquals("P001", history.undoLastAction().getPatientID());
         assertNull(history.undoLastAction());
+        assertEquals("[]", history.displayHistory());
+
+        history.addTreatment("P003", "Checkup", "2026-10-13 11:00");
+        assertEquals("P003", history.undoLastAction().getPatientID());
         assertEquals("[]", history.displayHistory());
     }
 
