@@ -21,9 +21,12 @@ public class BoundedWaitingRoomTests{
         assertTrue(room.addPatient(felix));
         assertTrue(room.addPatient(jeongin));
 
+        assertFalse(room.addPatient(han));
+
         assertEquals(3, room.size());
-        assertEquals(chan, room.nextPatient());
-        assertEquals(felix, room.nextPatient());
+        assertSame(chan, room.nextPatient());
+        assertSame(felix, room.nextPatient());
+        assertSame(jeongin, room.nextPatient());
         assertTrue(room.isEmpty());
     }
 
@@ -32,7 +35,7 @@ public class BoundedWaitingRoomTests{
         EmergencyWaitingRoom room = new EmergencyWaitingRoom(1);
 
         Patient chan = patient("P001", 1);
-        Patient feliz = patient("P002", 1);
+        Patient felix = patient("P002", 1);
 
         assertTrue(room.addPatient(chan));
         assertFalse(room.addPatient(felix));
@@ -72,7 +75,7 @@ public class BoundedWaitingRoomTests{
 
     private Patient patient(String id, int level){
         return new Patient(
-            id, "Test", "Patient", 30, "Checkup", level, "Waiting, "ER-001", 9, "INS-001"
+            id, "Test", "Patient", 30, "Checkup", level, "Waiting", "ER-001", 9, "INS-001"
         );
     }
 }

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CircularArrayQueue{
+public class CircularArrayQueueTests {
 
     @Test
     void emptyQueueReturnNull(){
@@ -34,7 +34,7 @@ public class CircularArrayQueue{
 
         assertEquals("[Han, Jeongin, Seungmin]", queue.toString());
         assertEquals(3, queue.size());
-        assertEquals("Han", queue.peekFront);
+        assertEquals("Han", queue.peekFront());
 
         assertEquals("Han", queue.dequeue());
         assertEquals("Jeongin", queue.dequeue());
@@ -51,7 +51,7 @@ public class CircularArrayQueue{
     CircularArrayQueue<String> queue = new CircularArrayQueue<>(2);
     queue.enqueue("Felix");
 
-    assertThrows(IllegalArgumentException.class,()-> queue.enqueue(nill));
+    assertThrows(IllegalArgumentException.class,()-> queue.enqueue(null));
 
     assertEquals(1, queue.size());
     assertEquals("Felix", queue.peekFront());
@@ -62,6 +62,6 @@ public class CircularArrayQueue{
    void nonpositiveCapacityIsRejected(){
     assertThrows(IllegalArgumentException.class, ()-> new CircularArrayQueue<String>(0));
 
-    assertThrows(IllegalArgumentException.class, ()-> new CircularArrayQueue<String(-1));
+    assertThrows(IllegalArgumentException.class, ()-> new CircularArrayQueue<String>(-1));
    }
 }
