@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RecursiveCountTests{
     @Test 
     void recursiveCountMatchesSizeForEmptyQueue(){
-        LinkedQueue<String> queue = new LinkedQueue<>():
+        LinkedQueue<String> queue = new LinkedQueue<>();
 
         assertEquals(0, queue.recursiveCount());
         assertEquals(queue.size(), queue.recursiveCount());
