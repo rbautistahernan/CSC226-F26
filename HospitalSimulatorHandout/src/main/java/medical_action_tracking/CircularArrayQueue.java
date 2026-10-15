@@ -45,7 +45,7 @@ public class CircularArrayQueue<T>{
     }
 
     @SuppressWarnings("unchecked")
-    public T peelFront(){
+    public T peekFront(){
         if(isEmpty()){
             return null;
         }
@@ -66,7 +66,7 @@ public class CircularArrayQueue<T>{
 
         for (int i =0; i<size; i++){
             int index = (front + i) % items.length;
-            result.append(items(index));
+            result.append(items[index]);
 
             if (i< size -1){
                 result.append(", ");
