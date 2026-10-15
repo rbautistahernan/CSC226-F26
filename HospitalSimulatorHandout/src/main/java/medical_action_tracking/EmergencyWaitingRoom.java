@@ -8,12 +8,16 @@ public class EmergencyWaitingRoom {
     private LinkedQueue<Patient> level3;
     private LinkedQueue<Patient> level4;
 
-    private int laneCapacityl
+    private int laneCapacity;
 
     public EmergencyWaitingRoom() {
         // TODO: Create one empty FIFO queue for each triage level.
         this(Integer.MAX_VALUE);
     }
+    public EmergencyWaitingRoom(int laneCapacity){
+        if (laneCapacity <=0){
+            throw new IllegalArgumentException("Capacity must be positive.");
+        }
     this.laneCapacity = laneCapacity;
 
     level1 = new LinkedQueue<>();

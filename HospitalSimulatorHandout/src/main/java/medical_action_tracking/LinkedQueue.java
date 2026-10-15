@@ -103,6 +103,6 @@ public class LinkedQueue<T> {
         if(current==null){
             return 0;
         }
-        reutrn 1 + countNodesRecursively(current.next);
+        return 1 + countNodesRecursively(current.next);
     }
 }
