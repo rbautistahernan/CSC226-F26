@@ -117,7 +117,7 @@ public class PatientRegistry {
         }
 
         StringBuilder sb = new StringBuilder();
-        sb.append("PatientRegistry (Total Patients: ").append(size).append("):\n");
+        sb.append("PatientRegistry (size==: ").append(size).append("):\n");
 
         for (int i = 0; i < size; i++) {
             sb.append("  [").append(i).append("] ")
