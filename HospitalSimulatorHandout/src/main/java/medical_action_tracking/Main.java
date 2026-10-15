@@ -95,7 +95,7 @@ public class Main {
 
         double averageWaitingTime = (double) totalWaitingTime / served;
 
-        System.out.println("Average waiting time: " + averageWaitingTime + "minutes");
+        System.out.println("Average waiting time: " + averageWaitingTime + " minutes");
     }
 
     private static Patient patient(String patientID, int triageLevel) {
