@@ -14,3 +14,23 @@
 | Capacity | Unbounded, subject to available memory | Fixed when constructed|
 | Storage | Allocates nodes with next references | Allocates an array, including unused slots |
 | Display | Recursive; O(n) traversal | Interactive; O(n) Traversal |
+
+
+##Optional: Bounded Waiting Lanes
+
+Each triage lane has the capacity supplied to the constructor.
+If the selected lane is full, addPatient() returns to false without 
+changing any lane. The default constructor preserves unbounded behavior.
+
+##Optional: Recursive Queue Count
+
+recursiveCount() counts the linked nodes without reomoving them.
+A null node returns 0. Each other node contributes 1 plus the count of the remainign nodes. Tests compare this result with 
+size() for empty and multi node queues.
+
+##Optional: Simulation Metrics
+
+The simulation uses one clinician and a clock measure in minutes.
+Each patient has an arrival munute and a service duration.
+Waiting time is the service start minute minus the arrival minute.
+The example waiting times are 0, 8, and 13 minutes, giving an average waiting time of 7.0 minutes.
